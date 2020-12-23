@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xiayiye5.withouticonapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--下面这个启动 Activity配置data后会没有启动 icon,但是能通过隐式跳转打开此 Activity页面-->
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <data
+                    android:host="without_icon"
+                    android:scheme="cn.xiayiye5.app" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--下面这个 Activity是配置了scheme协议，可以通过隐式调整scheme方式跳转-->
+        <activity android:name=".HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="without_icon"
+                    android:scheme="cn.xiayiye5.app" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
